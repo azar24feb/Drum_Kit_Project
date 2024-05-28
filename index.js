@@ -6,6 +6,7 @@
 document.querySelectorAll(".drum")
     .forEach(x => {
         x.addEventListener("click", function (params) {
+            // this.style.color = 'white';
             play(x.classList[0]);
             animate(x.classList[0]);
         })
@@ -52,6 +53,9 @@ function play(key){
 }
 
 function animate(key){
-    var button = document.querySelector("."+key);
-    button.classList.toggle("pressed");
+    const button = document.querySelector("."+key);
+    button.classList.add("pressed");
+    setTimeout(()=>{
+        button.classList.remove("pressed");
+    },75)
 }
