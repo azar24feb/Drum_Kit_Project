@@ -6,13 +6,14 @@
 document.querySelectorAll(".drum")
     .forEach(x => {
         x.addEventListener("click", function (params) {
-            this.style.color = 'white';
             play(x.classList[0]);
+            animate(x.classList[0]);
         })
     })
 
 document.addEventListener('keydown', (e) => {
      play(e.key);
+     animate(e.key);
 })
 
 function play(key){
@@ -48,4 +49,9 @@ function play(key){
         default:
             break;
     }
+}
+
+function animate(key){
+    var button = document.querySelector("."+key);
+    button.classList.toggle("pressed");
 }
